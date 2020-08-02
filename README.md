@@ -4,7 +4,7 @@ This package allow you to edit a text field in the index page with `one click`
 
 ## Installation
 
-        composer require ronnytorresmtz/textinline
+        composer require ronnytorresmtz/text-inline
 
 ## Usage
 
