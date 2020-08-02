@@ -32,7 +32,7 @@ export default {
 
         document.addEventListener('keyup', (evt) => {
             if (evt.keyCode === 27) {
-                this.setNotEdiable();
+                this.isEditable = false;
             }
         });
     },
@@ -44,12 +44,6 @@ export default {
   },
 
   methods: {
-    setNotEdiable() {
-      this.isEditable = false;
-    },
-    clickToEdit() {
-      this.isEditable = true;
-    },
     submit() {
       this.isEditable = false;
       let formData = new FormData();
@@ -66,18 +60,12 @@ export default {
         .then(
           () => {
               
-            this.$toasted.show(`${this.field.name} updated to ${this.value.substring(0,20)}...`, {
+            this.$toasted.show(`${this.field.name} updated to ${this.value.substring(0,20)} ...`, {
               type: 'success',
             });
-            this.refreshTable();
           },
           (response) => this.$toasted.show(response, { type: 'error' })
         )
-    },
-    refreshTable() {
-      if (this.shouldRefresh) {
-        this.$parent.$parent.$parent.$parent.$parent.$parent.getResources();
-      }
     },
     capitalize(string) {
       return string.charAt(0).toUpperCase() + string.substr(1);
@@ -89,9 +77,6 @@ export default {
     },
     fieldId() {
       return `text-inline-field-${this.field.name}-${this.resourceId}`;
-    },
-    shouldRefresh() {
-      return this.field.refreshOnSaving;
     },
     listener() {
       const event = this.field.event.split('.');
