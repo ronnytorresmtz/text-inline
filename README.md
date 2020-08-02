@@ -89,6 +89,6 @@ public function fields()
 
 ## Credits
 
-The credit for this package belongs to `PDMFC` I just add the clickable functionality and add one listener for blur event. Also I eliminate the refreshTable method.
+The credit for this package belongs to `PDMFC` I just add the clickable functionality to enable the edit mode and add one listener for blur event to enable the readonly mode. Also I eliminate the refreshTable method.
 
 This package was based on the package [pdmfc/nova-inline-text](http://https://github.com/pdmfc/nova-inline-text/) 
