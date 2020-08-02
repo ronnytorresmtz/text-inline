@@ -29,6 +29,7 @@ export default {
   props: ['resourceName', 'field'],
 
   created() {
+
         document.addEventListener('keyup', (evt) => {
             if (evt.keyCode === 27) {
                 this.setNotEdiable();

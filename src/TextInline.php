@@ -13,11 +13,6 @@ class TextInline extends Field
     protected $inlineOnIndex = false;
 
     /**
-     * @var bool
-     */
-    protected $refreshOnSaving = false;
-
-    /**
      * The field's component.
      *
      * @var string
@@ -51,18 +46,6 @@ class TextInline extends Field
     }
 
     /**
-     * It updates the resource table when saving the field value.
-     *
-     * @return self
-     */
-    public function refreshOnSaving()
-    {
-        $this->refreshOnSaving = true;
-
-        return $this;
-    }
-
-    /**
      *
      */
     public function saveOn(string $event)
@@ -85,7 +68,6 @@ class TextInline extends Field
 
         $this->withMeta([
             'inlineOnIndex' => $this->inlineOnIndex,
-            'refreshOnSaving' => $this->refreshOnSaving,
             'event' => $this->event,
         ]);
     }
