@@ -1,6 +1,4 @@
-# text-inline
-
-#### Laravel Nova Date Inline Field with One Click
+# Laravel Nova Date Inline Field with One Click
 
 This package allow you to edit a text field in the index page with `one click`
 
