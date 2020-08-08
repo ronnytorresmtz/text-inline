@@ -29,13 +29,16 @@ export default {
   props: ['resourceName', 'field'],
 
   created() {
-
         document.addEventListener('keyup', (evt) => {
             if (evt.keyCode === 27) {
                 this.isEditable = false;
             }
         });
     },
+
+  mounted() {
+    this.field.value = this.field.value || '--';
+  },
 
   data:() => {
     return {
@@ -46,11 +49,12 @@ export default {
   methods: {
     submit() {
       this.isEditable = false;
+      
+      this.field.value = this.value || '--';
+      
       let formData = new FormData();
-      formData.append(this.field.attribute, this.value);
+      formData.append(this.field.attribute, this.field.value);
       formData.append('_method', 'PUT');
-
-      this.field.value = this.value;
 
       return Nova.request()
         .post(
@@ -59,8 +63,8 @@ export default {
         )
         .then(
           () => {
-              
-            this.$toasted.show(`${this.field.name} updated to ${this.value.substring(0,20)} ...`, {
+            const valuMsg = (this.field.value.length > 20) ? this.field.value.substring(0,20) + ' ...' : this.field.value;          
+            this.$toasted.show(`${this.field.name} updated to ${valuMsg}`, {
               type: 'success',
             });
           },
