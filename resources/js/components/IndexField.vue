@@ -15,7 +15,7 @@
       @blur="isEditable=false"
       tabindex="0"
     />
-    <span v-else class="whitespace-no-wrap cursor-pointer" @click="isEditable=true">{{ field.value }}</span>
+    <span v-else :class="`whitespace-no-wrap ${(field.inlineOnIndex) ? 'cursor-pointer' : 'cursor-default'}`" @click="isEditable=true">{{ field.value }}</span>
   </div>
 </template>
 
