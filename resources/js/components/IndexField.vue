@@ -79,9 +79,11 @@ export default {
     resourceId() {
       return this.$parent.resource.id.value;
     },
+
     fieldId() {
       return `text-inline-field-${this.field.name}-${this.resourceId}`;
     },
+
     listener() {
       const event = this.field.event.split('.');
       const name = event[0];
@@ -94,6 +96,7 @@ export default {
         },
       };
     },
+    
     valueWasNotChanged() {
       return this.value === this.field.value;
     },
