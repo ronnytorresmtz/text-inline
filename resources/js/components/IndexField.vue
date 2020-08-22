@@ -37,7 +37,7 @@ export default {
     },
 
   mounted() {
-    this.field.value = this.field.value || '--';
+    this.field.value = this.field.value || '—';
   },
 
   data:() => {
@@ -49,8 +49,8 @@ export default {
   methods: {
     submit() {
       this.isEditable = false;
-      
-      this.field.value = this.value || '--';
+      console.log(this.value);
+      this.field.value = this.value || '—';
       
       let formData = new FormData();
       formData.append(this.field.attribute, this.field.value);
