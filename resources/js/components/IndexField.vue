@@ -49,10 +49,12 @@ export default {
   methods: {
     submit() {
       this.isEditable = false;
-      console.log(this.value);
       this.field.value = this.value || '—';
       
       let formData = new FormData();
+      this.$parent.resource.fields.forEach(function(field){
+          formData.append(field.attribute, field.value);
+      });
       formData.append(this.field.attribute, this.field.value);
       formData.append('_method', 'PUT');
 
